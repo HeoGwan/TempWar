@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TempWar;
 
 public class Bullet : MonoBehaviour
 {
@@ -8,7 +9,13 @@ public class Bullet : MonoBehaviour
     [Header("Variable")]
     [SerializeField] private float      m_shootTime = 1.5f;
     [SerializeField] private float      m_shootSpeed = 3f;
+    [SerializeField] private ETempType  m_tempType;
+
     private Vector3                     m_shootVec;
+
+    // Getter, Setter
+    public ETempType                    BulletTempType { get => m_tempType; }
+
     void Start() {
         StartCoroutine(Shooting());
     }
@@ -20,7 +27,7 @@ public class Bullet : MonoBehaviour
     private void OnCollisionEnter(Collision other) {
         if (other.collider.CompareTag("Floor"))
         {
-            Debug.Log("Collision to floor");
+            // Debug.Log("Collision to floor");
             Destroy(gameObject);
         }
     }

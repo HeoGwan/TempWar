@@ -5,8 +5,8 @@ using TempWar;
 
 public class Gun : Weapon
 {
-    [Header("GameObject")]
-    [SerializeField] private GameObject m_bullet;
+    [Header("Prefab")]
+    [SerializeField] private GameObject m_bulletPrefab;
 
     [Space(10)]
     [Header("Transform")]
@@ -22,7 +22,7 @@ public class Gun : Weapon
     {
         if (!m_canShoot) return;
 
-        Instantiate(m_bullet).GetComponent<Bullet>().Init(m_shootLocation);
+        Instantiate(m_bulletPrefab).GetComponent<Bullet>().Init(m_shootLocation);
         m_canShoot = false;
         StartCoroutine(ShootDelay());
     }
@@ -31,7 +31,7 @@ public class Gun : Weapon
     {
         if (!m_canShoot) return;
 
-        Instantiate(m_bullet).GetComponent<Bullet>().Init(m_shootLocation, forward);
+        Instantiate(m_bulletPrefab).GetComponent<Bullet>().Init(m_shootLocation, forward);
         m_canShoot = false;
         StartCoroutine(ShootDelay());
     }

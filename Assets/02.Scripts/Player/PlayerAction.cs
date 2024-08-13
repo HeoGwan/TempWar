@@ -9,7 +9,7 @@ public class PlayerAction : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButton(InputButton.LEFT_MOUSE_BUTTON))
+        if (Input.GetMouseButton(CInputButton.LEFT_MOUSE_BUTTON))
         {
             m_weapon.Action(transform.forward);
         }
